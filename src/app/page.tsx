@@ -1,10 +1,7 @@
 import Link from "next/link";
-import { TrustStrip } from "@/components/TrustStrip";
-import { MarketingGraphicsStack } from "@/components/MarketingGraphicsStack";
-import { CTA } from "@/components/site/CTA";
 import { Hero } from "@/components/site/Hero";
 import { PricingSection } from "@/components/site/Pricing";
-import { DashboardPreview } from "@/components/product/DashboardPreview";
+import { CTA } from "@/components/site/CTA";
 import { Card } from "@/components/ui/Card";
 
 const faqItems = [
@@ -14,7 +11,7 @@ const faqItems = [
   },
   {
     q: "Do I need an API key to test this MVP?",
-    a: "No. The Combo Engine runs fully in-browser using deterministic local logic.",
+    a: "No. The Combo Engine runs in the browser using deterministic local logic.",
   },
   {
     q: "Who is this for?",
@@ -24,19 +21,15 @@ const faqItems = [
 
 export default function HomePage() {
   return (
-    <>        <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
-          <TrustStrip />
-        </div>
-        <MarketingGraphicsStack />
-
+    <div className="px-4 sm:px-6 lg:px-8">
       <Hero />
 
-      <section className="mx-auto max-w-6xl px-5 py-6">
+      <section className="mx-auto max-w-6xl px-5 py-6" data-reveal>
         <h2 className="mb-4 text-3xl font-semibold text-white">Problem, solution, and how it works</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {[
             ["Problem", "Great game ideas die in notes apps because scoping, safety, and design coherence are hard."],
-            ["Solution", "GameCombo creates original prototype briefs from remix prompts, with mechanics and roadmap included."],
+            ["Solution", "GameCombo creates original prototype briefs from remix prompts, with mechanics and a roadmap included."],
             ["How it works", "Pick genres, world style, and target player. Generate a complete concept report in one click."],
           ].map(([title, body]) => (
             <Card key={title}>
@@ -47,31 +40,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-10">
-        <h2 className="text-3xl font-semibold text-white">Product demo preview</h2>
+      <section className="mx-auto max-w-6xl px-5 py-10" data-reveal>
+        <h2 className="text-3xl font-semibold text-white">Try the Combo Engine</h2>
         <p className="mt-3 max-w-3xl text-white/75">
-          Test the Combo Engine flow in-browser. Enter a prompt, blend inspiration categories, and
-          generate a complete prototype brief with scoring and roadmap details.
+          The demo runs locally in your browser. Enter a prompt, blend inspiration categories, and
+          generate a prototype brief with mechanics, safety notes, and a build plan.
         </p>
         <Link href="/demo" className="mt-5 inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm text-white">
           Open live demo
         </Link>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-10">
+      <section className="mx-auto max-w-6xl px-5 py-10" data-reveal>
         <Card>
           <h2 className="text-3xl font-semibold text-white">Why IP-safe remixing matters</h2>
           <p className="mt-3 text-white/75">
-            Teams can explore bold inspirations without cloning protected franchises. We extract the
-            playable feeling and convert it into original mechanics, worlds, and progression.
+            Teams can explore bold inspirations without cloning protected franchises. GameCombo
+            extracts the playable feeling and converts it into original mechanics, worlds, and
+            progression.
           </p>
           <p className="mt-2 text-white/75">
-            This lets creators move faster while reducing legal and platform risk from day one.
+            That lets creators move faster while reducing legal and platform risk from day one.
           </p>
         </Card>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-6">
+      <section className="mx-auto max-w-6xl px-5 py-6" data-reveal>
         <h2 className="text-3xl font-semibold text-white">Creator use cases</h2>
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           {[
@@ -87,8 +81,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-12">
-        <h2 className="text-3xl font-semibold text-white">Combo Engine features</h2>
+      <section className="mx-auto max-w-6xl px-5 py-12" data-reveal>
+        <h2 className="text-3xl font-semibold text-white">What a combo report includes</h2>
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {[
             "Original title and one-line pitch",
@@ -101,15 +95,11 @@ export default function HomePage() {
             </Card>
           ))}
         </div>
-        <Link href="/demo" className="mt-6 inline-flex rounded-xl border border-white/20 px-4 py-2 text-sm text-white">
-          Product demo preview
-        </Link>
       </section>
 
-      <DashboardPreview />
       <PricingSection />
 
-      <section className="mx-auto max-w-6xl px-5 py-10">
+      <section className="mx-auto max-w-6xl px-5 py-10" data-reveal>
         <h2 className="text-3xl font-semibold text-white">Roadmap</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           {[
@@ -125,7 +115,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-10">
+      <section className="mx-auto max-w-6xl px-5 py-10" data-reveal>
         <h2 className="text-3xl font-semibold text-white">FAQ</h2>
         <div className="mt-4 space-y-4">
           {faqItems.map((item) => (
@@ -138,6 +128,6 @@ export default function HomePage() {
       </section>
 
       <CTA />
-    </>
+    </div>
   );
 }
